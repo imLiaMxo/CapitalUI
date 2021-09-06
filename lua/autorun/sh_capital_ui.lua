@@ -43,6 +43,7 @@ hook.Run("Capital.UI.HasLoaded")
 
 // Update Checker
 hook.Add("Think", "Capital.UI.VersionChecker", function()
+    // Remove hook for my own sanity reasons.
 	hook.Remove("Think", "Capital.UI.VersionChecker")
 
 	http.Fetch("https://raw.githubusercontent.com/imLiaMxo/CapitalUI/main/VERSION", function(body)
