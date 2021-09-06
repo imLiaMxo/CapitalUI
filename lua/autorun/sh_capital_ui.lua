@@ -42,9 +42,9 @@ hook.Run("Capital.UI.HasLoaded")
 
 
 // Update Checker
-hook.Add("Think", "Capital.UI.VersionChecker", function()
+hook.Add("Think", "Capital.UI.CheckUpdate", function()
     // Remove hook for my own sanity reasons.
-	hook.Remove("Think", "Capital.UI.VersionChecker")
+	hook.Remove("Think", "Capital.UI.CheckUpdate") //
 
 	http.Fetch("https://raw.githubusercontent.com/imLiaMxo/CapitalUI/main/VERSION", function(body)
 		if Capital.UI.Version ~= string.Trim(body) then
