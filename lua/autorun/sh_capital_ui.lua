@@ -14,11 +14,14 @@ function Capital.IncludeDirectory(dir)
         else
             if file:StartWith("cl_") then
                 AddCSLuaFile(fileDir)
+                MsgC(Color(0,255,0), "[Capital UI] Loaded " .. fileDir .. " [CLIENT]\n")
             elseif file:StartWith("sh_") then
                 AddCSLuaFile(fileDir)
                 include(fileDir)
+                MsgC(Color(229,255,0), "[Capital UI] Loaded " .. fileDir .. " [SHARED]\n")
             else
                 include(fileDir)
+                MsgC(Color(38,0,255), "[Capital UI] Loaded " .. fileDir .. " [SERVER]\n")
             end
         end
     end
@@ -42,9 +45,8 @@ hook.Run("Capital.UI.HasLoaded")
 
 
 // Update Checker
-hook.Add("Think", "Capital.UI.CheckUpdate", function()
-    // Remove hook for my own sanity reasons.
-	hook.Remove("Think", "Capital.UI.CheckUpdate") //
+hook.Add("Think", "Capital.UI.VersionChecker", function()
+	hook.Remove("Think", "Capital.UI.VersionChecker")
 
 	http.Fetch("https://raw.githubusercontent.com/imLiaMxo/CapitalUI/main/VERSION", function(body)
 		if Capital.UI.Version ~= string.Trim(body) then

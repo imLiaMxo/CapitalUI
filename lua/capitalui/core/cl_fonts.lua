@@ -7,7 +7,7 @@ function Capital.UI.GenerateFonts(font, start, finish)
             font = font,
             size = i,
             weight = 30
-        }
+        })
     end
 end
 
