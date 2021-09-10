@@ -27,7 +27,7 @@ function PANEL:Init()
     self.ScrollReturnWait = 0
 
     self:SetBarDockShouldOffset(true)
-    self.VBar:SetWide(Capital.UI.Scale(8))
+    self.VBar:SetWide(8)
 
     self.Canvas.PerformLayout = function(s, w, h)
         self:LayoutContent(w, h)

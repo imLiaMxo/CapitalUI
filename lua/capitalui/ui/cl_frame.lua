@@ -129,9 +129,11 @@ concommand.Add("cui_test", function()
 
 		local bts = {}
 		for i = 1, 45 do
-			bts[i] = scrller:Add("Capital.UI.Button")
+			bts[i] = scrller:Add("Capital.UI.TextButton")
 			bts[i]:SetSize(500,40)
 			bts[i]:SetText("I am button: " .. i)
+			bts[i]:DockMargin(2,5,2,5)
+			bts[i]:Dock(TOP)
 		end
     else
         frm:Remove()

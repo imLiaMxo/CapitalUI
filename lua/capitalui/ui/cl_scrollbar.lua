@@ -16,7 +16,7 @@ function PANEL:Paint(w, h)
         (self:IsHovered() or self:GetParent().Dragging) and self.HoverCol or self.NormalCol
     )
 
-    Capital.UI.DrawRoundedBox(w / 2, 0, 0, w, h, self.Colour)
+    draw.RoundedBox(w / 2, 0, 0, w, h, self.Colour)
 end
 
 vgui.Register("Capital.UI.ScrollbarGrip", PANEL, "Panel")
