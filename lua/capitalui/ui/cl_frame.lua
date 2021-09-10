@@ -117,10 +117,22 @@ vgui.Register("Capital.UI.Frame", PANEL, "EditablePanel")
 
 concommand.Add("cui_test", function()
     if not IsValid(frm) then
-        local frm = vgui.Create("Capital.UI.Frame")
+        frm = vgui.Create("Capital.UI.Frame")
         frm:SetSize(600,600)
         frm:Center()
         frm:MakePopup()
+
+		scrller = vgui.Create("Capital.UI.ScrollPanel", frm)
+		scrller:Center()
+		scrller:Dock(FILL)
+
+
+		local bts = {}
+		for i = 1, 45 do
+			bts[i] = scrller:Add("Capital.UI.Button")
+			bts[i]:SetSize(500,40)
+			bts[i]:SetText("I am button: " .. i)
+		end
     else
         frm:Remove()
     end
